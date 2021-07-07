@@ -3,14 +3,37 @@ package pdm.moodmanager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.moodmanager.User
+import pdm.moodmanager.http.APIListener
+import pdm.moodmanager.http.user.UserRequest
+import pdm.moodmanager.http.user.model.UserModel
 
 class MainActivity : AppCompatActivity() {
+
+    val userRequest: UserRequest = UserRequest()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
 //        setContentView(R.layout.signup_activity)
 //        setContentView(R.layout.activity_main)
-        test()
+//        test()
+
+        lateinit var p: UserModel
+        val body = HashMap<String, Any>()
+        body.put("email","daniel@dan.com")
+        body.put("username","danielfolgado")
+        body.put("password","123")
+
+        userRequest.register(body, object :APIListener{
+            override fun onSuccess(model: UserModel) {
+
+            }
+
+            override fun onFailure(str: String) {
+                val s = ""
+            }
+
+        })
     }
 
     fun test(){
