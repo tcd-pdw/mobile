@@ -1,4 +1,4 @@
-package com.example.moodmanager
+package com.example.moodmanager.states
 
 abstract class State {
     open var score = 0

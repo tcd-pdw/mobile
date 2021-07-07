@@ -1,4 +1,4 @@
-package com.example.moodmanager
+package com.example.moodmanager.states
 
 class Regular(override var score:Int): State() {
 
