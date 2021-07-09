@@ -2,7 +2,7 @@ package pdm.moodmanager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.moodmanager.User
+import com.example.moodmanager.states.User
 import pdm.moodmanager.http.APIListener
 import pdm.moodmanager.http.user.UserRequest
 import pdm.moodmanager.http.user.model.UserModel
