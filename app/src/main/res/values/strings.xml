@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MoodManager</string>
+    <string name="txt_form_name">Name</string>
+    <string name="txt_form_password">Password</string>
+    <string name="txt_form_email">E-mail</string>
+    <string name="lb_wish_sign_in">I wish sign in</string>
+    <string name="txt_register_title">Sign Up</string>
+    <string name="txt_wish_sign_up">I wish sign up</string>
+    <string name="txt_login_title">Log In</string>
+    <string name="txt_login_email">Enter with your email</string>
+    <string name="txt_login_password">Input your password</string>
 </resources>
