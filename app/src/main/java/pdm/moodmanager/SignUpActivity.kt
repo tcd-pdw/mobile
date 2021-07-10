@@ -43,6 +43,7 @@ class SignUpActivity:AppCompatActivity() {
         userRequest.register(body, object : APIListener {
             override fun onSuccess(model: UserModel) {
 
+
             }
 
             override fun onFailure(str: String) {
