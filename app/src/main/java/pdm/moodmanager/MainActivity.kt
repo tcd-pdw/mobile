@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
+
 //        setContentView(R.layout.signup_activity)
 //        setContentView(R.layout.activity_main)
 //        test()
