@@ -126,6 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        android:onClick="wishSignUp"
         app:layout_constraintTop_toBottomOf="@+id/iconSignUp"
         app:layout_constraintVertical_bias="0.789" />
 

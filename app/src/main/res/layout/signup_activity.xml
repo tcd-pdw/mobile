@@ -152,7 +152,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llRegisterPassword"
-        app:layout_constraintVertical_bias="0.423"
+        app:layout_constraintVertical_bias="0.415"
+        android:onClick="OnSignupSubmit"
         app:srcCompat="@drawable/btn_login" />
 
 

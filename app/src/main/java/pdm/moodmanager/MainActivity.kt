@@ -1,7 +1,9 @@
 package pdm.moodmanager
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.moodmanager.states.User
 import pdm.moodmanager.http.APIListener
 import pdm.moodmanager.http.user.UserRequest
@@ -45,5 +47,11 @@ class MainActivity : AppCompatActivity() {
         user.ToNegative()
         user.ToNegative()
         println("Users: ${user}")
+    }
+
+    fun wishSignUp(view: View){
+        println("ENTROU EM OnSignUp")
+        var signUp = Intent(this, SignUpActivity::class.java)
+        startActivity(signUp)
     }
 }
