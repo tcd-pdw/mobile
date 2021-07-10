@@ -14,5 +14,4 @@ interface UserService {
     @POST("users/new")
     fun register(@Body params: HashMap<String, Any>
                 ): Call<UserModel>
-
 }
