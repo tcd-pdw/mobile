@@ -14,6 +14,9 @@
         android:theme="@style/Theme.MoodManager">
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".HistoryActivity"></activity>
+        <activity
+            android:name=".PreferenceActivity"
+            android:label="@string/title_activity_preference"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
