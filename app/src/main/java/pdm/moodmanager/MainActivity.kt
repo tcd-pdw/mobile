@@ -4,7 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.example.moodmanager.states.User
+import kotlinx.android.synthetic.main.signin_activity.*
+import kotlinx.android.synthetic.main.signup_activity.*
+import pdm.moodmanager.helper.ShowToast
 import pdm.moodmanager.http.APIListener
 import pdm.moodmanager.http.user.UserRequest
 import pdm.moodmanager.http.user.model.UserModel
@@ -27,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         body.put("password","123")
 
         userRequest.register(body, object :APIListener{
-            override fun onSuccess(model: UserModel) {
+            override fun onSuccess(model: Any) {
 
             }
 
@@ -47,6 +51,28 @@ class MainActivity : AppCompatActivity() {
         user.ToNegative()
         user.ToNegative()
         println("Users: ${user}")
+    }
+
+    fun OnSigninSubmit(view: View){
+
+        var email: TextView = edLoginEmail
+        var password: TextView = edLoginPassword
+
+        val body = HashMap<String, Any>()
+
+        body.put("email",email.text.toString())
+        body.put("password",password.text.toString())
+
+        userRequest.login(body, object : APIListener {
+            override fun onSuccess(model: Any) {
+                ShowToast( applicationContext,"User Logged")
+
+            }
+
+            override fun onFailure(str: String) {
+                ShowToast( applicationContext,"Error Conection")
+            }
+        })
     }
 
     fun wishSignUp(view: View){
