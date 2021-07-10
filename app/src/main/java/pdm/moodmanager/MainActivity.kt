@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.signin_activity)
+//        setContentView(R.layout.home_activity)
         setContentView(R.layout.home_activity)
-//        setContentView(R.layout.signup_activity)
 //        setContentView(R.layout.activity_main)
 //        test()
 
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
     //Move to HomeActivity
     fun toHistory(view:View){
         println("ENTROU EM TOHISTORY")
-        var history = Intent(this,HistoryActivity::class.java)
+        var history = Intent(this,HomeActivity::class.java)
         startActivity(history)
     }
 }
