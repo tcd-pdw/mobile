@@ -22,12 +22,18 @@ class UserModel {
     @SerializedName("preference")
     var preference: PreferenceModel? = null
 
-    @SerializedName("registeres")
+    @SerializedName("registers")
     var registers: ArrayList<RegistersModel> = ArrayList()
 
     @SerializedName("interests")
     var interests: ArrayList<InterestModel> = ArrayList()
 
-    @SerializedName("phrase")
+
+}
+
+class UserLoginModel {
+    @SerializedName("user")
+    var user: UserModel? = null
+    @SerializedName("phrases")
     var phrase: ArrayList<PhraseModel> = ArrayList()
 }
