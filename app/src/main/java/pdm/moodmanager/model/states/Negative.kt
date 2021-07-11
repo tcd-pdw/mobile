@@ -1,6 +1,6 @@
 package com.example.moodmanager.states
 
-class Negative(override var score:Int): State() {
+class Negative(override var score: Long): State() {
 
     override fun ToPositive(): State {
         score+=2

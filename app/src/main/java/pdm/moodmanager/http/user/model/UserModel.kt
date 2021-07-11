@@ -14,7 +14,7 @@ class UserModel {
     var password: String = ""
 
     @SerializedName("geralScore")
-    var geralScore: Int = 0
+    var geralScore: Long = 0
 
     @SerializedName("id")
     var id: Int = 0

@@ -1,17 +1,17 @@
 package com.example.moodmanager.states
 
-import android.os.Parcelable
+import pdm.moodmanager.MainActivity
 import pdm.moodmanager.model.Interest
 import pdm.moodmanager.model.Preference
 import pdm.moodmanager.model.Register
-import java.io.Serializable
+import java.time.LocalDateTime
 
 class User(
         var id: Int,
         var username:String,
         var email:String,
         var password:String,
-        var geralScore:Int,
+        var geralScore:Long,
         var state:State = Regular(geralScore)
 ){
 
@@ -25,12 +25,16 @@ class User(
 //    }
 
     fun ToPositive(){
-         state = state.ToPositive()
+
+        state = state.ToPositive()
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More happy",state.score))
      }
     fun ToNegative(){
         state = state.ToNegative()
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More sad",state.score))
     }
     fun ToRegular(){
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More normal",state.score))
         state = state.ToRegular()
     }
 

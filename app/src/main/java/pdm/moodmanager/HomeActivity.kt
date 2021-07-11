@@ -30,6 +30,14 @@ class HomeActivity : AppCompatActivity() {
              imageView.setOnClickListener {
                  v -> this.moodSelected = v.getTag(images[i]) as Int
                  println(this.moodSelected)
+
+                 if(this.moodSelected == 1 || this.moodSelected == 5){
+                     MainActivity.theUser.ToPositive()
+                 }else if(this.moodSelected == 2){
+                     MainActivity.theUser.ToRegular()
+                 }else{
+                     MainActivity.theUser.ToNegative()
+                 }
              }
             // Criar um objeto registro com a hora e adicionar
             gallery.addView(view)
