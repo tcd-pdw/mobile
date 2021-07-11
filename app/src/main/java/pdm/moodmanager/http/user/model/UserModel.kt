@@ -28,7 +28,9 @@ class UserModel {
     @SerializedName("interests")
     var interests: ArrayList<InterestModel> = ArrayList()
 
-
+    override fun toString(): String {
+        return "User: ${username},Email: ${email} Password: ${password}, Score: ${geralScore},Id: ${id}"
+    }
 }
 
 class UserLoginModel {

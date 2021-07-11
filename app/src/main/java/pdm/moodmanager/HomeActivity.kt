@@ -1,5 +1,6 @@
 package pdm.moodmanager
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,5 +34,11 @@ class HomeActivity : AppCompatActivity() {
             // Criar um objeto registro com a hora e adicionar
             gallery.addView(view)
         }
+    }
+
+    fun toHistory(view:View){
+        println("ENTROU EM TOHISTORY")
+        var history = Intent(this,HistoryActivity::class.java)
+        startActivity(history)
     }
 }
