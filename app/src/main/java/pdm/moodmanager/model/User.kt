@@ -25,12 +25,12 @@ class User(
 
     fun ToPositive(){
         DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
-        state = state.ToPositive()
         MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More happy",state.score))
-     }
+        state = state.ToPositive()
+    }
     fun ToNegative(){
-        state = state.ToNegative()
         MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More sad",state.score))
+        state = state.ToNegative()
     }
     fun ToRegular(){
         MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More normal",state.score))
