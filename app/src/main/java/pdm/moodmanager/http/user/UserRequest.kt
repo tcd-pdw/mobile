@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class UserRequest {
     private val remote = RetrofitClient.createService(UserService::class.java)
-
+    constructor() {}
     fun register(objs: HashMap<String, Any>, listener: APIListener) {
         val call: Call<UserModel> = remote.register(objs)
         call.enqueue(object : Callback<UserModel> {
@@ -29,6 +29,20 @@ class UserRequest {
 
     fun login(objs: HashMap<String, Any>, listener: APIListener) {
         val call: Call<UserLoginModel> = remote.login(objs)
+        call.enqueue(object : Callback<UserLoginModel> {
+            override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {
+                listener.onFailure(t.message.toString())
+            }
+
+            override fun onResponse(call: Call<UserLoginModel>, response: Response<UserLoginModel>) {
+                response.body()?.let { listener.onSuccess(it) } // verifica se é nulo, retorna ele mesmo para dentro a callback {}
+            }
+
+        })
+    }
+
+    fun save(objs: HashMap<String, Any>, listener: APIListener) {
+        val call: Call<UserLoginModel> = remote.save(objs)
         call.enqueue(object : Callback<UserLoginModel> {
             override fun onFailure(call: Call<UserLoginModel>, t: Throwable) {
                 listener.onFailure(t.message.toString())

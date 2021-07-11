@@ -21,4 +21,10 @@ interface UserService {
     @POST("users/login")
     fun login(@Body params: HashMap<String, Any>
     ): Call<UserLoginModel>
+
+    @Headers("accept: application/json",
+            "content-type: application/json")
+    @POST("users/save")
+    fun save(@Body params: HashMap<String, Any>
+    ): Call<UserLoginModel>
 }

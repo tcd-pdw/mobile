@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.example.moodmanager.states.User
 import kotlinx.android.synthetic.main.signin_activity.*
 import pdm.moodmanager.helper.ShowToast
+import pdm.moodmanager.helper.helperSave
 import pdm.moodmanager.http.APIListener
 import pdm.moodmanager.http.user.UserRequest
 import pdm.moodmanager.http.user.model.PhraseModel
@@ -24,12 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signin_activity)
-//        setContentView(R.layout.home_activity)
-//        setContentView(R.layout.signup_activity)
-//        setContentView(R.layout.activity_main)
-
     }
-
 
     fun OnSigninSubmit(view: View){
 
@@ -46,7 +42,6 @@ class MainActivity : AppCompatActivity() {
                 ShowToast( applicationContext,"User Logged")
                 val output = model as UserLoginModel
                 val user = model.user as UserModel
-                //println(user)
 
                 if(user!=null || user?.username.equals("")){
                     var toHome = Intent(applicationContext,HomeActivity::class.java)
@@ -85,5 +80,17 @@ class MainActivity : AppCompatActivity() {
     companion object {
         lateinit var theUser:User
         var phrases: MutableList<Phrase> = arrayListOf()
+        fun saveUser() {
+            val userRequest: UserRequest = UserRequest()
+            userRequest.save(helperSave(theUser), object: APIListener {
+                override fun onSuccess(model: Any) {
+                    println(model)
+                }
+
+                override fun onFailure(str: String) {
+                }
+
+            })
+        }
     }
 }
