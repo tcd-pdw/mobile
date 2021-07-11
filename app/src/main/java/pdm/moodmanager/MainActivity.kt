@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 //println(user)
 
                 if(user!=null || user?.username.equals("")){
-                    var toHome = Intent(applicationContext,HistoryActivity::class.java)
+                    var toHome = Intent(applicationContext,HomeActivity::class.java)
 
                     theUser = User(user.id,user.username,user.email,user.password,user.geralScore)
                     user.registers.forEach {
@@ -90,7 +90,6 @@ class MainActivity : AppCompatActivity() {
                         phrases.add(Phrase(it.id,it.type,it.content))
                     }
 
-//                    toHome.putExtra("User",user)
                     startActivity(toHome)
                     println("POR ENQUANTO OK")
                 }else{
@@ -108,13 +107,6 @@ class MainActivity : AppCompatActivity() {
         println("ENTROU EM OnSignUp")
         var signUp = Intent(this, SignUpActivity::class.java)
         startActivity(signUp)
-    }
-
-    //Move to HomeActivity
-    fun toHistory(view:View){
-        println("ENTROU EM TOHISTORY")
-        var history = Intent(this,HistoryActivity::class.java)
-        startActivity(history)
     }
 
     companion object {
