@@ -1,5 +1,7 @@
 package com.example.moodmanager.states
 
+import android.os.Parcelable
+
 abstract class State {
     open var score = 0
 

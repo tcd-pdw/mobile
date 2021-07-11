@@ -1,6 +1,7 @@
 package pdm.moodmanager.http.user.service
 
 import pdm.moodmanager.http.user.model.UserModel
+import pdm.moodmanager.http.user.model.UserLoginModel
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,4 +15,10 @@ interface UserService {
     @POST("users/new")
     fun register(@Body params: HashMap<String, Any>
                 ): Call<UserModel>
+
+    @Headers("accept: application/json",
+            "content-type: application/json")
+    @POST("users/login")
+    fun login(@Body params: HashMap<String, Any>
+    ): Call<UserLoginModel>
 }
