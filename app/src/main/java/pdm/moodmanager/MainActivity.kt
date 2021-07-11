@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     fun OnSigninSubmit(view: View){
 
         var email: TextView = edLoginEmail
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 ShowToast( applicationContext,"User Logged")
                 val output = model as UserLoginModel
                 val user = model.user as UserModel
-                //println(user)
 
                 if(user!=null || user?.username.equals("")){
                     var toHome = Intent(applicationContext,HomeActivity::class.java)

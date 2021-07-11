@@ -1,11 +1,11 @@
 package pdm.moodmanager
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -44,12 +44,7 @@ class HistoryActivity: AppCompatActivity() {
             linelist.add(Entry(i.toFloat(),regs.get(regs.size-i).score.toFloat()))
             println("Adicionando: ${regs.get(regs.size-i).score.toFloat()}")
         }
-//        linelist.add(Entry(01f,2f))
-//        linelist.add(Entry(02f,-1f))
-//        linelist.add(Entry(03f,-3f))
-//        linelist.add(Entry(04f,-1f))
-//        linelist.add(Entry(05f,4f))
-//        linelist.add(Entry(06f,2f))
+
 
         lineDataSet = LineDataSet(linelist,"Count")
         lineData = LineData(lineDataSet)
@@ -64,11 +59,16 @@ class HistoryActivity: AppCompatActivity() {
             println(it)
         }
 
-        val nextValues = Random.nextInt(0, MainActivity.phrases.size)
-
-
         tip = findViewById(R.id.txtTip)
-        tip.text = MainActivity.phrases.get(nextValues).content
+        if(MainActivity.phrases.size!=0){
+            val nextValues = Random.nextInt(0, MainActivity.phrases.size)
+            tip.text = MainActivity.phrases.get(nextValues).content
+        }else{
+            tip.text = "Do not pray for an easy life, pray for the strength to endure a difficult on"
+        }
+    }
 
+    fun backHome(view: View){
+        startActivity(Intent(this,HomeActivity::class.java))
     }
 }

@@ -1,5 +1,6 @@
 package pdm.moodmanager
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
@@ -46,5 +47,7 @@ class PreferenceActivity : AppCompatActivity() {
         }
         println("FEITO")
     }
-
+    fun backHome(view: View){
+        startActivity(Intent(this,HomeActivity::class.java))
+    }
 }

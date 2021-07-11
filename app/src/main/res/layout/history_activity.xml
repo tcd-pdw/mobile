@@ -11,6 +11,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/txtPreferenceNotification"
+        android:onClick="backHome"
         app:layout_constraintEnd_toStartOf="@+id/txtMoodHistoryTitle"
         app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
