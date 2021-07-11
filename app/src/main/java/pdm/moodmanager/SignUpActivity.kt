@@ -37,11 +37,15 @@ class SignUpActivity:AppCompatActivity() {
         body.put("email",email.text.toString())
         body.put("username",username.text.toString())
         body.put("password",password.text.toString())
-
-        println(body.toString())
+        if(email.text.toString().isBlank()||username.text.toString().isEmpty() || password.text.toString().isBlank()) {
+            ShowToast( applicationContext,"Fill all inputs")
+            return
+        }
         userRequest.register(body, object : APIListener {
             override fun onSuccess(model: Any) {
+                println(model as UserModel)
                 ShowToast( applicationContext,"User Save")
+                finish()
             }
 
             override fun onFailure(str: String) {

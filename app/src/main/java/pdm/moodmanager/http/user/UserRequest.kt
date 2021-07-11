@@ -1,5 +1,7 @@
 package pdm.moodmanager.http.user
 
+import android.widget.Toast
+import pdm.moodmanager.helper.ShowToast
 import pdm.moodmanager.http.APIListener
 import pdm.moodmanager.http.RetrofitClient
 import pdm.moodmanager.http.user.model.UserLoginModel
@@ -35,7 +37,10 @@ class UserRequest {
             }
 
             override fun onResponse(call: Call<UserLoginModel>, response: Response<UserLoginModel>) {
-                response.body()?.let { listener.onSuccess(it) } // verifica se é nulo, retorna ele mesmo para dentro a callback {}
+                response.body()?.let {
+                    listener.onSuccess(it)
+                } // verifica se é nulo, retorna ele mesmo para dentro a callback {}
+                false
             }
 
         })

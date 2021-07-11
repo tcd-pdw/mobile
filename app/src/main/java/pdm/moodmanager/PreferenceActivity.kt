@@ -47,7 +47,11 @@ class PreferenceActivity : AppCompatActivity() {
         }
         println("FEITO")
     }
-    fun backHome(view: View){
-        startActivity(Intent(this,HomeActivity::class.java))
+
+    fun toHome(view: View) {
+        println("CHAMANDO HOME")
+        var prefs = Intent(this, HomeActivity::class.java)
+        startActivity(prefs)
     }
+
 }

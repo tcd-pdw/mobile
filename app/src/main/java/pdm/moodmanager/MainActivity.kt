@@ -16,6 +16,7 @@ import pdm.moodmanager.http.user.model.UserLoginModel
 import pdm.moodmanager.http.user.model.UserModel
 import pdm.moodmanager.model.Interest
 import pdm.moodmanager.model.Phrase
+import pdm.moodmanager.model.Preference
 import pdm.moodmanager.model.Register
 
 class MainActivity : AppCompatActivity() {
@@ -36,23 +37,30 @@ class MainActivity : AppCompatActivity() {
 
         body.put("email",email.text.toString())
         body.put("password",password.text.toString())
-
+        val passwordApp = password.text.toString()
         userRequest.login(body, object : APIListener {
             override fun onSuccess(model: Any) {
-                ShowToast( applicationContext,"User Logged")
                 val output = model as UserLoginModel
                 val user = model.user as UserModel
+                if(user?.email.equals("")) {
+                    ShowToast( applicationContext,"Wrong credentials")
+                    return
+                } else if(user!=null || user?.username.equals("")){
+                    ShowToast( applicationContext,"User Logged")
 
-                if(user!=null || user?.username.equals("")){
                     var toHome = Intent(applicationContext,HomeActivity::class.java)
 
-                    theUser = User(user.id,user.username,user.email,user.password,user.geralScore)
+                    theUser = User(user.id,user.username,user.email,passwordApp,user.geralScore)
                     user.registers.forEach {
                         theUser.registers.add(Register(it.date,it.description,it.score,it.id))
                     }
+
                     user.interests.forEach {
                         theUser.interests.add(Interest(it.name,it.description,it.id,it.score))
                     }
+
+                    theUser.preference = Preference(user.preference?.cherring_up as Boolean,
+                            user.preference?.song_sugestion as Boolean, user.preference?.self_improvment as Boolean, user.preference?.id?.toLong())
 
                     model.phrase.forEach {
                         phrases.add(Phrase(it.id,it.type,it.content))
@@ -84,13 +92,17 @@ class MainActivity : AppCompatActivity() {
             val userRequest: UserRequest = UserRequest()
             userRequest.save(helperSave(theUser), object: APIListener {
                 override fun onSuccess(model: Any) {
-                    println(model)
+                    clearUser()
                 }
 
                 override fun onFailure(str: String) {
                 }
 
             })
+        }
+        fun clearUser() {
+            this.theUser = User(0,"","","",0)
+            this.phrases.clear()
         }
     }
 }

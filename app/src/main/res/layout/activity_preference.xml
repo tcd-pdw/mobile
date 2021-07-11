@@ -131,7 +131,7 @@
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:layout_marginTop="36dp"
-        android:onClick="backHome"
+        android:onClick="toHome"
         app:layout_constraintBottom_toTopOf="@+id/txtPreferenceNotification"
         app:layout_constraintEnd_toStartOf="@+id/txtPreference"
         app:layout_constraintHorizontal_bias="0.284"

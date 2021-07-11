@@ -5,6 +5,7 @@ import pdm.moodmanager.model.Interest
 import pdm.moodmanager.model.Preference
 import pdm.moodmanager.model.Register
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class User(
         var id: Int,
@@ -14,10 +15,8 @@ class User(
         var geralScore:Long,
         var state:State = Regular(geralScore)
 ){
-
-
-    val preference: Preference = Preference()
-    val registers: MutableList<Register> = arrayListOf<Register>()
+    var preference: Preference = Preference()
+    var registers: MutableList<Register> = arrayListOf<Register>()
     val interests: MutableList<Interest> = arrayListOf<Interest>()
 
 //    init{
@@ -25,16 +24,16 @@ class User(
 //    }
 
     fun ToPositive(){
-
+        DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")
         state = state.ToPositive()
-        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More happy",state.score))
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More happy",state.score))
      }
     fun ToNegative(){
         state = state.ToNegative()
-        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More sad",state.score))
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More sad",state.score))
     }
     fun ToRegular(){
-        MainActivity.theUser.registers.add(Register(LocalDateTime.now().toString(),"More normal",state.score))
+        MainActivity.theUser.registers.add(Register(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss")).toString(),"More normal",state.score))
         state = state.ToRegular()
     }
 

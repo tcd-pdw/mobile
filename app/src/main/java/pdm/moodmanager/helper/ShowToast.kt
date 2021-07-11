@@ -11,7 +11,7 @@ class ShowToast(context: Context?, info: String) {
         val toast = Toast.makeText(
             context,
             Html.fromHtml("<font color='#D79052' ><b style='color: #fff'>$info</b></font>",0),
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         )
         toast.setGravity(Gravity.TOP, 0, 0)
         toast.show()

@@ -16,10 +16,10 @@ import kotlin.random.Random
 
 class HistoryActivity: AppCompatActivity() {
 
-    lateinit var linelist:ArrayList<Entry>
+    lateinit var linelist: ArrayList<Entry>
     lateinit var lineDataSet: LineDataSet
-    lateinit var lineData:LineData
-    lateinit var tip:TextView
+    lateinit var lineData: LineData
+    lateinit var tip: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class HistoryActivity: AppCompatActivity() {
         var regs = MainActivity.theUser.registers
 
         var limit = 0
-        if(regs.size<6)
+        if (regs.size < 6)
             limit = regs.size
         else
             limit = 6
@@ -39,19 +39,19 @@ class HistoryActivity: AppCompatActivity() {
         println("QTDE DE REGS: ${regs.size}")
         linelist = ArrayList()
 //        var i:Int = 1
-        for(i in 1..(limit)){
+        for (i in 1..(limit)) {
             println("i: ${i}, limit: ${limit}, regsize: ${regs.size}, invert: ${regs.size - i}")
-            linelist.add(Entry(i.toFloat(),regs.get(regs.size-i).score.toFloat()))
-            println("Adicionando: ${regs.get(regs.size-i).score.toFloat()}")
+            linelist.add(Entry(i.toFloat(), regs.get(regs.size - i).score.toFloat()))
+            println("Adicionando: ${regs.get(regs.size - i).score.toFloat()}")
         }
 
 
-        lineDataSet = LineDataSet(linelist,"Count")
+        lineDataSet = LineDataSet(linelist, "Count")
         lineData = LineData(lineDataSet)
         lineChart.data = lineData
 //        lineDataSet.color = Color.BLACK
         lineDataSet.setColors(*ColorTemplate.JOYFUL_COLORS)
-        lineDataSet.valueTextColor= Color.YELLOW
+        lineDataSet.valueTextColor = Color.YELLOW
         lineDataSet.valueTextSize = 20f
         lineDataSet.setDrawFilled(true)
 
@@ -60,15 +60,16 @@ class HistoryActivity: AppCompatActivity() {
         }
 
         tip = findViewById(R.id.txtTip)
-        if(MainActivity.phrases.size!=0){
+        if (MainActivity.phrases.size != 0) {
             val nextValues = Random.nextInt(0, MainActivity.phrases.size)
             tip.text = MainActivity.phrases.get(nextValues).content
-        }else{
+        } else {
             tip.text = "Do not pray for an easy life, pray for the strength to endure a difficult on"
         }
     }
 
-    fun backHome(view: View){
-        startActivity(Intent(this,HomeActivity::class.java))
+    fun backHome(view: View) {
+        startActivity(Intent(this, HomeActivity::class.java))
     }
+
 }
