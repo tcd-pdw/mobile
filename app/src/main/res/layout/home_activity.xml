@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginBottom="68dp"
-        android:onClick="toHistory"
+        android:onClick="toPreferences"
         android:text="@string/txt_home_preferences"
         android:textColor="@color/secondary"
         android:textSize="20sp"

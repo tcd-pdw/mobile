@@ -49,4 +49,10 @@ class HomeActivity : AppCompatActivity() {
         var history = Intent(this,HistoryActivity::class.java)
         startActivity(history)
     }
+
+    fun toPreferences(view:View){
+        println("CHAMANDO PREFERENCES")
+        var prefs = Intent(this,PreferenceActivity::class.java)
+        startActivity(prefs)
+    }
 }
