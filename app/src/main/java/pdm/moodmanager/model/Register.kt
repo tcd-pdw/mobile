@@ -1,7 +1,7 @@
 package pdm.moodmanager.model
 
 data class Register(
-        val date: String?,
+        var date: String?,
         val description: String?,
         val score: Long
     ) {
