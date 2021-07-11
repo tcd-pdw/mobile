@@ -29,22 +29,22 @@ class MainActivity : AppCompatActivity() {
 //        setContentView(R.layout.activity_main)
 //        test()
 
-        lateinit var p: UserModel
-        val body = HashMap<String, Any>()
-        body.put("email","daniel@dan.com")
-        body.put("username","danielfolgado")
-        body.put("password","123")
-
-        userRequest.register(body, object :APIListener{
-            override fun onSuccess(model: Any) {
-
-            }
-
-            override fun onFailure(str: String) {
-                val s = ""
-            }
-
-        })
+//        lateinit var p: UserModel
+//        val body = HashMap<String, Any>()
+//        body.put("email","daniel@dan.com")
+//        body.put("username","danielfolgado")
+//        body.put("password","123")
+//
+//        userRequest.register(body, object :APIListener{
+//            override fun onSuccess(model: Any) {
+//
+//            }
+//
+//            override fun onFailure(str: String) {
+//                val s = ""
+//            }
+//
+//        })
     }
 
 //    fun test(){

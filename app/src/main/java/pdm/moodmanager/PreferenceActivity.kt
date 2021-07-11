@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 
+
 class PreferenceActivity : AppCompatActivity() {
     lateinit var cheers: CheckBox
     lateinit var habits: CheckBox
@@ -12,18 +13,23 @@ class PreferenceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_preference)
 
         cheers =  findViewById(R.id.cbPreferenceCheerMeUp)
         habits = findViewById(R.id.cbPreferenceHelpImprove)
         songs = findViewById(R.id.cbPreferenceSugestSome)
 
-//        if ()
+        if(MainActivity.theUser.preference.cherring_up){
+            cheers.isChecked = true
+        }
 
-//        MainActivity.theUser.preference.setPreference(cheers.isChecked,songs.isChecked,habits.isChecked)
+        if(MainActivity.theUser.preference.self_improvment){
+            habits.isChecked = true
+        }
 
-        // Enables Always-on
-        setContentView(R.layout.activity_preference)
+        if(MainActivity.theUser.preference.song_sugestion){
+            songs.isChecked = true
+        }
     }
 
     fun onCheckListener(view: View){
@@ -40,4 +46,5 @@ class PreferenceActivity : AppCompatActivity() {
         }
         println("FEITO")
     }
+
 }
