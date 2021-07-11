@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="168dp"
         android:onClick="toPreferences"
         android:text="@string/txt_home_preferences"
         android:textColor="@color/secondary"
@@ -71,23 +71,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtMoodHistory3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="20dp"
-        android:onClick="toHistory"
-        android:text="@string/txt_home_interests"
-        android:textColor="@color/secondary"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtMoodHistory"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMoodHistory" />
 
     <TextView
         android:id="@+id/txtMoodHistory2"
@@ -100,7 +85,7 @@
         android:textColor="@color/secondary"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtMoodHistory3"
+        app:layout_constraintBottom_toTopOf="@+id/txtMoodHistory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
